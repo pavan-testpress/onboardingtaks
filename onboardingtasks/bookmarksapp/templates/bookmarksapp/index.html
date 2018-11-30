@@ -1,6 +1,6 @@
-<h1>Bookmarks App</h1>
+<h1 align="center">Bookmarks App</h1>
 {% for bookmark in bookmarks%}
-    <form action='post/{{bookmark.id}}' method = "post">
+    <form align="center" action='post/{{bookmark.id}}' method = "post">
     {% csrf_token %}
     <input type="text" id="{{bookmark.id}}" name="name" value="{{bookmark.name}}"/>
     <input type="text" id="{{bookmark.id}}" name="bookmark_url" value="{{bookmark.bookmark_url}}"/>
@@ -10,7 +10,7 @@
     <p>
     </form>
 {% endfor %}
-  <form action='post/addnew/0' method = "post">
+  <form align="center" action='post/addnew/0' method = "post">
     {% csrf_token %}
     <input type="text" name="name"/>
     <input type="text" name="bookmark_url"/>
