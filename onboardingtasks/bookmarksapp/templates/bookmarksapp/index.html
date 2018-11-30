@@ -1,3 +1,12 @@
-{% for bookmark in bookmarks %}
-    <li>{{bookmark.name}} --- {{bookmark.bookmark_url}} --- {{bookmark.description}}</li>
+<h1>Bookmarks App</h1>
+{% for bookmark in bookmarks%}
+    <form action='post/{{bookmark.id}}' method = "post">
+    {% csrf_token %}
+    <input type="text" id="{{bookmark.id}}" name="name" value="{{bookmark.name}}"/>
+    <input type="text" id="{{bookmark.id}}" name="bookmark_url" value="{{bookmark.bookmark_url}}"/>
+    <input type="text" id="{{bookmark.id}}" name="description" value=" {{bookmark.description}}"/>
+    <input type="submit" name="edit" value="Edit"/>
+    <input type="submit" name="delete" value="Delete"/>
+    <p>
+    </form>
 {% endfor %}

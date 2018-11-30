@@ -1,6 +1,8 @@
 from django.urls import path
-from .import views
+from .views import HomeView 
 
+appname ='home'
 urlpatterns = [
-    path('',views.index,name='index'),
+    path('',HomeView.as_view(),name='index'),
+    path('post/<int:bookmark_id>',HomeView.as_view(),name="index_post")
 ]

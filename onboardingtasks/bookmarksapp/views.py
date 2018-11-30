@@ -1,8 +1,23 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render,redirect
+from django.views.generic import TemplateView
 from .models import Bookmarks
 # Create your views here.
 
-def index(request):
-    bookmarks = Bookmarks.objects.all()
-    return render(request,'bookmarksapp/index.html',{'bookmarks':bookmarks})
+class HomeView(TemplateView):
+    template_name = "bookmarksapp/index.html"
+
+    def get(self,request):
+        bookmarks = Bookmarks.objects.all()
+        return render(request,self.template_name,{'bookmarks':bookmarks})
+    
+    def post(self,request,bookmark_id):
+        if 'edit' in request.POST:
+            bookmark = Bookmarks.objects.get(pk=bookmark_id)
+            bookmark.bookmark_url = request.POST['bookmark_url']
+            bookmark.name = request.POST['name']
+            bookmark.description = request.POST['description']
+            bookmark.save()
+        elif 'delete' in request.POST:
+            bookmark = Bookmarks.objects.get(pk=bookmark_id)
+            bookmark.delete()
+        return redirect('/bookmarks/')
