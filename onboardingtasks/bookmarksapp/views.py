@@ -20,4 +20,10 @@ class HomeView(TemplateView):
         elif 'delete' in request.POST:
             bookmark = Bookmarks.objects.get(pk=bookmark_id)
             bookmark.delete()
+        elif 'add' in request.POST:
+            bookmark = Bookmarks()
+            bookmark.bookmark_url = request.POST['bookmark_url']
+            bookmark.name = request.POST['name']
+            bookmark.description = request.POST['description']
+            bookmark.save()
         return redirect('/bookmarks/')

@@ -10,3 +10,11 @@
     <p>
     </form>
 {% endfor %}
+  <form action='post/addnew/0' method = "post">
+    {% csrf_token %}
+    <input type="text" name="name"/>
+    <input type="text" name="bookmark_url"/>
+    <input type="text" name="description"/>
+    <input type="submit" name="add" value="add"/>
+    <p>
+    </form>
