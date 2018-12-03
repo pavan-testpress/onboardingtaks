@@ -1,0 +1,10 @@
+	.leftDiv
+	{	
+		width: 20%;
+		float: left;
+	}
+	.rightDiv
+	{	
+		width: 80%;
+		float: right;
+	}			

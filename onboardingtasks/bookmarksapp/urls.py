@@ -1,9 +1,15 @@
 from django.urls import path
-from .views import HomeView 
+from .views import HomeView,signup 
+
+
 
 appname ='home'
 urlpatterns = [
-    path('',HomeView.as_view(),name='index'),
-    path('post/<int:bookmark_id>',HomeView.as_view(),name="index_post"),
-    path('post/addnew/<int:bookmark_id>',HomeView.as_view(),name='index_add'),
+    path('signup',signup),
+    path('',HomeView.as_view()),
+    path('add',HomeView.as_view()),
+    path('post',HomeView.as_view()),
+    path('get',HomeView.as_view()),
+    path('folder',HomeView.as_view()),
+    
 ]
