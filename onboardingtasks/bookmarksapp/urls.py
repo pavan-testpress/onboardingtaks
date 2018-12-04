@@ -5,7 +5,7 @@ from .views import HomeView,signup
 
 appname ='home'
 urlpatterns = [
-    path('signup',signup),
+    path('signup',signup,name="signup"),
     path('',HomeView.as_view()),
     path('add',HomeView.as_view()),
     path('post',HomeView.as_view()),

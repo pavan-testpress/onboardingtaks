@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'pagesapp.apps.PagesappConfig',
     'bookmarksapp.apps.BookmarksappConfig',  
     'django.contrib.admin',
     'django.contrib.auth',
@@ -120,3 +121,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/bookmarks/login'

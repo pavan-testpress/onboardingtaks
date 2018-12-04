@@ -19,6 +19,7 @@ from django.views.generic.base import TemplateView
 
 
 urlpatterns = [
+    path('pages/',include('pagesapp.urls')),
     path('bookmarks/',include('bookmarksapp.urls')),
     path('admin/', admin.site.urls),
     path('bookmarks/', include('django.contrib.auth.urls')), 

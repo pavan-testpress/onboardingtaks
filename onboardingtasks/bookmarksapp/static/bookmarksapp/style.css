@@ -1,10 +1,62 @@
+	#title
+	{
+		text-align: center;
+		color: green;
+	}
+	.head p {
+		text-align: right;
+	}
 	.leftDiv
 	{	
-		width: 20%;
+		width: 19.5%;
+    	border-radius: 15px;
 		float: left;
+		color:#867eff;
+		box-shadow:2px 3px 17px 6px ;
+	}
+	.leftDiv h3{
+		margin-left: 5%;
+	}
+		
+	.folders{
+		margin-left: 3%;
+		border-radius: 25px;
+   		background: #7ec716e6;
+   		width: 80%;
+   		height: 5%;
+   		box-shadow: 0px 2px 8px 0px; 
+	}
+	.folder-text{
+		margin-left: 3%;
+		border-radius: 25px;
+		background : white;
+		width: 80%;
+		height: 5%;
+		box-shadow: 0px 2px 8px 0px; 
+		text-align: center;
+	}
+	.folder-btn{
+		margin-left: 1px;
+		border-radius: 25px;
+		background : white;
+		box-shadow: 1px;
+		text-align: center;
 	}
 	.rightDiv
 	{	
 		width: 80%;
+		border-radius: 15px;
 		float: right;
-	}			
+		color:  #867eff;
+		box-shadow: 2px 3px 17px 6px;
+	}	
+	.rightDiv h3{
+		margin-left: 2%;
+	}
+	.book-btn{
+		margin-left: 1px;
+		border-radius: 25px;
+		background : #7ec716e6;
+		box-shadow: 1px;
+		text-align: center;
+	}
