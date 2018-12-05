@@ -25,6 +25,8 @@ class NavPageView(TemplateView):
     template_name = 'pagesapp/navpages.html'
     def get(self,request):
         pat=request.path.split('/')[2]
-        html = Pages.objects.get(slug=pat).content_html
+        h = Pages.objects.get(slug=pat)
+        html = h.content_html
+        title = h.title
         data = Pages.objects.all().order_by('ordering','-modified')
-        return render(request,self.template_name,{'data':data,'html':html})
+        return render(request,self.template_name,{'data':data,'html':html,'title':title})
