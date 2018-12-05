@@ -1,6 +1,12 @@
 from django.urls import path
-from .views import HomePageView,AboutPageView
+from django.conf.urls import url
+from .views import HomePageView,NavPageView
+from pagesapp.models import Pages
+
+app_name="pagesapp"
+
 urlpatterns = [
     path('',HomePageView.as_view(),name="home"),
-    path('about',AboutPageView.as_view(),name="about")
+    url (r'^',NavPageView.as_view())
 ]
+

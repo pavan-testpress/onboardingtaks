@@ -1,6 +1,14 @@
 {% extends 'pagesapp/base.html' %}
+{% block navbarcontent %}
+    {% include  'pagesapp/navbar.html' %}
+{% endblock navbarcontent %}
 
 
-{% block content%}
-<h1>Homepage</h1>
-{% endblock content %}
+{% block homepagecontent%}
+    <h3> Create Your Page Here </h3>
+    <form action="{% url 'pagesapp:home'%}" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input class="btn btn-primary" type="submit" value="Submit">
+    </form>
+{% endblock homepagecontent %} 

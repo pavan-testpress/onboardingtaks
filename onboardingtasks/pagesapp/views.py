@@ -1,8 +1,30 @@
 from django.shortcuts import render
+from django.conf.urls import url
 from django.views.generic import TemplateView
+from pagesapp.forms import PagesForm
+from pagesapp.models import Pages
+
 
 class HomePageView(TemplateView):
     template_name = 'pagesapp/home.html'
 
-class AboutPageView(TemplateView):
-    template_name ='pagesapp/about.html'
+    def get(self,request):
+        data = Pages.objects.all().order_by('ordering','-modified')
+        form = PagesForm()
+        return render(request,self.template_name,{'form':form,'data':data})
+    
+    def post(self,request):
+        data = Pages.objects.all().order_by('ordering','-modified')
+        form = PagesForm(request.POST)
+        if form.is_valid:
+            form.save()
+        form = PagesForm()
+        return render(request,self.template_name,{'form':form,'data':data})
+
+class NavPageView(TemplateView):
+    template_name = 'pagesapp/navpages.html'
+    def get(self,request):
+        pat=request.path.split('/')[2]
+        html = Pages.objects.get(slug=pat).content_html
+        data = Pages.objects.all().order_by('ordering','-modified')
+        return render(request,self.template_name,{'data':data,'html':html})
