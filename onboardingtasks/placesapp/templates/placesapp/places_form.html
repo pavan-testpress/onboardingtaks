@@ -1,0 +1,12 @@
+{% extends 'placesapp/base.html' %}
+{% block title %}
+    <title>Create Place</title>
+{% endblock %}
+
+{% block pagecontent %}
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p }}
+    <input type="submit" value="Submit"/>
+</form>    
+{% endblock %}

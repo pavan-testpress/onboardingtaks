@@ -1,0 +1,19 @@
+{% extends 'placesapp/base.html' %}
+{% block title %}
+    <title>{{place.title}}</title>
+{% endblock %}
+
+{% block pagecontent %}
+    <p>Title : {{place.title}}</p>
+    <p>Location : {{place.location.x}},{{place.location.y}}</p>
+    <p>Descrption : {{place.description}}</p>
+    <p>Address : {{place.address}}</p>
+    <p>Phone : {{place.phone}}</p>
+    <p>City : {{place.city}}</p>
+    <p>Type of City : {{place.type_of_city}}</p>
+    <p>Tags : 
+    {% for tag in place.tags.all %}
+        {{ tag }},
+    {% endfor %}
+    </p>
+{% endblock %}
