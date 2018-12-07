@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     "taggit",
+    'eventsapp.apps.EventsappConfig',
     'pagesapp.apps.PagesappConfig',
     'bookmarksapp.apps.BookmarksappConfig',  
     'placesapp.apps.PlacesappConfig',

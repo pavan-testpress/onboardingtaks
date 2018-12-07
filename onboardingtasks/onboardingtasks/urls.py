@@ -25,4 +25,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('bookmarks/', include('django.contrib.auth.urls')), 
     url (r'^places/',include('placesapp.urls')),
+    path('events/',include('eventsapp.urls')),
 ]

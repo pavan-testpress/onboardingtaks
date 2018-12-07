@@ -3,6 +3,8 @@ from django.contrib.gis.db import models
 from taggit.managers import TaggableManager
 
 # Create your models here.
+
+
 class Places(models.Model):
     title = models.CharField(max_length=100)
     location = models.PointField()
@@ -16,3 +18,6 @@ class Places(models.Model):
     def get_absolute_url(self):
         from django.urls import reverse
         return reverse('placesapp:list')
+
+    def get_unique_cities(self):
+        return Places.objects.all().values_list('city', flat=True).distinct()

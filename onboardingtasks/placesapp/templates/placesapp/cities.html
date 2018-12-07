@@ -1,0 +1,14 @@
+{% load placesapp_extras %}
+<div id="right-nav">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Filter by City</h3>
+                {% for place in places|first|unique_cities%}
+                    <a href="{{place}}"><p>{{place}}</p></a>
+                {% endfor %}
+                    <a href="{% url 'placesapp:list' %}"><p>All</p></a>
+            </div>
+        </div>
+    </div>
+</div>
