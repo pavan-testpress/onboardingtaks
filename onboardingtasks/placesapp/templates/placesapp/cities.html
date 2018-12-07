@@ -4,9 +4,11 @@
         <div class="row">
             <div class="col-md-12">
                 <h3>Filter by City</h3>
-                {% for place in places|first|unique_cities%}
-                    <a href="{{place}}"><p>{{place}}</p></a>
-                {% endfor %}
+                {% if places %}
+                    {% for place in places|first|unique_cities%}
+                        <a href="{{place}}"><p>{{place}}</p></a>
+                    {% endfor %}
+                {% endif %}
                     <a href="{% url 'placesapp:list' %}"><p>All</p></a>
             </div>
         </div>

@@ -1,0 +1,16 @@
+{% extends "eventsapp/base.html" %}
+{% block homepagecontent %}
+{{ tform.media }}
+    {% for field in eform %}
+        {% if field.label == "Place"%}
+            <p>{{field.label}}:{{field}}
+            <a href = "{% url 'placesapp:create' %}">
+            <input type="submit" value="Add new Place">
+            </a>
+            </p>
+        {% else %}
+        <p>{{field.label}}:{{field}}</p> 
+        {% endif %}   
+    {% endfor %}
+    {{tform.as_p}}
+{% endblock %}

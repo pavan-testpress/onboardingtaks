@@ -15,6 +15,11 @@ class Places(models.Model):
     type_of_city = models.CharField(max_length=20)
     tags = TaggableManager()
 
+
+    def __str__(self):
+        return self.title
+
+
     def get_absolute_url(self):
         from django.urls import reverse
         return reverse('placesapp:list')
