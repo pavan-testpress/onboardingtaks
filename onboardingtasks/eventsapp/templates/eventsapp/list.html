@@ -1,0 +1,7 @@
+{% extends 'eventsapp/base.html' %}
+{% block homepagecontent %}
+    {% for event in events %}
+        <a href="{{event.id}}"><h2>{{event.title}}</h2></a>
+    {% endfor %}
+    <a href="{% url 'eventsapp:create'%}"><button class="btn btn-primary btn-m" >Create new event</button></a>
+{% endblock %}

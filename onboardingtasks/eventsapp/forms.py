@@ -10,5 +10,5 @@ class EventForm(ModelForm):
 class EventTimeForm(ModelForm):
     class Meta:
         model = EventTime
-        fields = "__all__"
+        exclude = ('event',)
         widgets = {'event_start_time': widgets.AdminSplitDateTime(),'event_end_time': widgets.AdminSplitDateTime()}

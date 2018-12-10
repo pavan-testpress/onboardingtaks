@@ -7,7 +7,8 @@
     {% for place in places %}
         <a href="{{place.id}}"><p>{{place.title}}</p></a>
     {% endfor %}
-    <a href="{% url 'placesapp:create' %}">
-    <button class = "btn btn-primary ">Add New Place </button>
-    </a>
+    <form action = "{% url 'placesapp:create' %}" method="GET">
+    {% csrf_token %}
+    <button class = "btn btn-primary " name="path" value="{{request.path}}">Add New Place </button>
+    </form>
 {% endblock %}

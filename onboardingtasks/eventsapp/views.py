@@ -2,15 +2,40 @@ from django.shortcuts import render
 from django.views.generic import ListView,CreateView
 from eventsapp.models import Events,EventTime
 from eventsapp.forms import EventForm,EventTimeForm
+from django.forms import formset_factory
+from datetime import datetime
 # Create your views here.
 
+
 class EventsListView(ListView):
+    context_object_name = "events"
     model = Events
-    template_name = "eventsapp/base.html"
+    template_name = "eventsapp/list.html"
 
 class EventsCreateView(CreateView):
     def get(self,request):
         eform = EventForm()
+        #tform = formset_factory(EventTimeForm, extra=1)
         tform = EventTimeForm()
         template_name = "eventsapp/createview.html"
         return render(request,template_name,{'eform':eform,'tform':tform,}) 
+
+    def post(self,request):
+        template_name = "eventsapp/createview.html"
+        eform = EventForm(request.POST)
+        if eform.is_valid():
+            eform.title = eform.cleaned_data['title']
+            eform.place = eform.cleaned_data['place']
+            eform.tags = eform.cleaned_data['tags']
+            eform.created_by = eform.cleaned_data['created_by']
+            e = eform.save()
+        tform = EventTime()
+        event_start_time = request.POST['event_start_time_0']+" "+request.POST['event_start_time_1']
+        event_start_time = datetime.strptime(event_start_time, '%Y-%m-%d %H:%M:%S') 
+        tform.event_start_time = event_start_time
+        event_end_time = request.POST['event_end_time_0']+" "+request.POST['event_end_time_1']
+        event_end_time = datetime.strptime(event_end_time, '%Y-%m-%d %H:%M:%S') 
+        tform.event_end_time = event_end_time
+        tform.event = Events.objects.get(pk =e.pk)
+        tform.save()
+        return render(request,template_name,{}) 

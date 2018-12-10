@@ -20,9 +20,9 @@ class Places(models.Model):
         return self.title
 
 
-    def get_absolute_url(self):
-        from django.urls import reverse
-        return reverse('placesapp:list')
+    # def get_absolute_url(self):
+    #     from django.urls import reverse
+    #     return reverse('placesapp:list')
 
     def get_unique_cities(self):
         return Places.objects.all().values_list('city', flat=True).distinct()

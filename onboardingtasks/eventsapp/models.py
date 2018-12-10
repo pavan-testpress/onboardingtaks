@@ -15,3 +15,5 @@ class EventTime(models.Model):
     event_start_time = models.DateTimeField(auto_now=False, auto_now_add=False)
     event_end_time = models.DateTimeField(auto_now=False, auto_now_add=False)
     event = models.ForeignKey(Events,on_delete = models.CASCADE)
+
+

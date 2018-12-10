@@ -28,3 +28,6 @@ class List_View(ListView):
 class Create_View(CreateView):
     model = Places
     fields = '__all__'
+    def get_success_url(self):
+        url = self.request.GET['path']
+        return url

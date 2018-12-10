@@ -1,6 +1,0 @@
-{% extends 'placesapp/places_form.html'%}
-{% block createplacebutton%}
-<form method="POST">
-    {% csrf_token %}
-    <input type="submit" value="Submit"/>
-{% endblock %}

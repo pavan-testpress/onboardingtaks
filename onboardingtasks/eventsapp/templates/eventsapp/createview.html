@@ -1,16 +1,23 @@
 {% extends "eventsapp/base.html" %}
 {% block homepagecontent %}
 {{ tform.media }}
-    {% for field in eform %}
+<form id="Form1"  action = "{% url 'placesapp:create' %}"  method="GET"  style = "display:inline;">
+{% csrf_token %}
+</form>
+<form id="Form2"  action = "{% url 'eventsapp:create' %}"  method="POST"  style = "display:inline;">
+{% csrf_token %}
+{% for field in eform %}
         {% if field.label == "Place"%}
-            <p>{{field.label}}:{{field}}
-            <a href = "{% url 'placesapp:create' %}">
-            <input type="submit" value="Add new Place">
-            </a>
-            </p>
+        <div style = "display:-webkit-box;">
+            <p>{{field.label}}:{{field}}</p>    
+            <button class="btn btn-primary btn-sm" name="path" value="{{request.path}}" form="Form1">Add New Place </button>
+        </div> 
         {% else %}
         <p>{{field.label}}:{{field}}</p> 
-        {% endif %}   
+        {% endif %}
     {% endfor %}
     {{tform.as_p}}
+    <input class="btn btn-primary" type="submit" value="Create"/>
+</form>
+    
 {% endblock %}
