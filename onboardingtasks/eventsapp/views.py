@@ -8,9 +8,17 @@ from datetime import datetime
 
 
 class EventsListView(ListView):
-    context_object_name = "events"
     model = Events
     template_name = "eventsapp/list.html"
+    def get(self,request):
+        events = self.get_queryset(request)
+        return render(request,self.template_name,{'events':events})
+    def get_queryset(self,request):
+        print(request.GET)
+        if('weekday' in request.GET):
+            print(request.GET['weekday'])
+        return super().get_queryset()
+    
 
 class EventsCreateView(CreateView):
     def get(self,request):

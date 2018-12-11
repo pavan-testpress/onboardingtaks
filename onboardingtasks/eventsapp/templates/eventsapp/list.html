@@ -5,3 +5,7 @@
     {% endfor %}
     <a href="{% url 'eventsapp:create'%}"><button class="btn btn-primary btn-m" >Create new event</button></a>
 {% endblock %}
+
+{% block filters%}
+            {% include 'eventsapp/filters.html' %}
+{% endblock %}
