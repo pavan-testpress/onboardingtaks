@@ -15,10 +15,10 @@ class EventsListView(ListView):
         return render(request,self.template_name,{'events':events})
     def get_queryset(self,request):
         print(request.GET)
+        qs = super().get_queryset()
         if('weekday' in request.GET):
-            print(request.GET['weekday'])
-        return super().get_queryset()
-    
+            qs = qs.
+        return 
 
 class EventsCreateView(CreateView):
     def get(self,request):
