@@ -126,4 +126,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/bookmarks/login'
-SPATIALITE_LIBRARY_PATH = 'mod_spatialite' 
+SPATIALITE_LIBRARY_PATH = 'mod_spatialite'

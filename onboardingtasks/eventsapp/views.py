@@ -14,11 +14,23 @@ class EventsListView(ListView):
         events = self.get_queryset(request)
         return render(request,self.template_name,{'events':events})
     def get_queryset(self,request):
-        print(request.GET)
         qs = super().get_queryset()
+        results = set()
         if('weekday' in request.GET):
-            qs = qs.
-        return 
+            for q in qs:
+                c_all =q.event_times.all()
+                for c in c_all:
+                    if str(c.event_start_time.weekday()) == (request.GET['weekday']):
+                        results.add(q)
+            return results
+        elif('yyyy-mm' in request.GET):
+            year,month = request.GET['yyyy-mm'].split('-')
+            qs = set(qs.filter(event_times__event_start_time__year = year,event_times__event_start_time__month=month))
+        elif('yyyy-mm-dd' in request.GET):
+            year,month,date = request.GET['yyyy-mm-dd'].split('-')
+            qs = set(qs.filter(event_times__event_start_time__year = year,event_times__event_start_time__month=month,event_times__event_start_time__day=date))
+        return qs
+
 
 class EventsCreateView(CreateView):
     def get(self,request):
