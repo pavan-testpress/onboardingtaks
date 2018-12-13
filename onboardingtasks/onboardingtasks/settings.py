@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'pagesapp.apps.PagesappConfig',
     'bookmarksapp.apps.BookmarksappConfig',  
     'placesapp.apps.PlacesappConfig',
+    'invitationapp.apps.InvitationappConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
