@@ -11,6 +11,9 @@ class Events(TimeStampedModel):
     tags = TaggableManager()
     created_by = models.CharField(max_length=50)
 
+    def __str__(slef):
+        return self.title
+
 class EventTime(models.Model):
     event_start_time = models.DateTimeField(auto_now=False, auto_now_add=False)
     event_end_time = models.DateTimeField(auto_now=False, auto_now_add=False)
