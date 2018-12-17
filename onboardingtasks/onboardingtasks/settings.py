@@ -61,7 +61,7 @@ ROOT_URLCONF = 'onboardingtasks.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'bookmarksapp/templates')],
+        'DIRS': [os.path.join(BASE_DIR,)],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -125,6 +125,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/bookmarks/'
 LOGOUT_REDIRECT_URL = '/bookmarks/login'
 SPATIALITE_LIBRARY_PATH = 'mod_spatialite'
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'pavan1995143.pavan@gmail.com'
+EMAIL_HOST_PASSWORD = 'mynameisking'
+EMAIL_PORT = 587

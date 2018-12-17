@@ -1,1 +1,24 @@
-<h1>Hi, You successfully logged in <h1>
+{% extends "invitationapp/base.html"%}
+{% block content%}
+<table>
+  <tr>
+    <th>Invitee</th>
+    <th>Status</th> 
+  </tr>
+  {% for invitee in invite_list %}
+  <tr>
+    <td>{{ invitee.invitee_email }}</td>
+    {% if invitee.registered %}
+        <td>Registered</td>
+    {% else %}
+        <td>Not Registered</td>
+    {% endif %}
+  </tr>
+{% endfor %}
+</table>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Invite"/>
+</form>
+{% endblock %}

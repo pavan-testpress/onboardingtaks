@@ -1,0 +1,23 @@
+<html>
+    <head>
+        {% load static %}
+        <link rel ="stylesheet" type="text/css" href="{% static 'bookmarksapp/style.css' %}"/>
+
+        <link rel ="stylesheet" type="text/css" href="{% static 'invitationapp/css.css' %}"/>
+    </head>
+    <body>
+        <header>
+            <div class="head">
+                <h1 id="title">Invitation App</h1>
+                <p><a href="{% url 'invitationapp:signup' %}">Signup</a> | <a href="{% url 'invitationapp:login' %}">Login</a> | <a href="{% url 'invitationapp:logout' %}">logout</a></p>
+            </div>
+            <div>
+            </div>
+        </header>
+
+
+        {% block content%}
+        {% endblock%}
+
+    </body>
+</html>

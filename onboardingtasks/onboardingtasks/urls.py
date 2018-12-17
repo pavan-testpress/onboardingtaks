@@ -17,9 +17,11 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf.urls import url
 from django.views.generic.base import TemplateView
+from . import views
 
 
 urlpatterns = [
+    path('',views.index,name="index"),
     path('pages/',include('pagesapp.urls')),
     path('bookmarks/',include('bookmarksapp.urls')),
     path('admin/', admin.site.urls),
