@@ -1,0 +1,13 @@
+ {% extends "invitationapp/base.html"%}
+{% block content%}
+ <h2>Sign up</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Sign up</button>
+  </form>
+  <form action="{% url 'invitationapp:login'%}">
+    <p>Already had an account. Please Login here.</p>
+    <input type="submit" value="Sign in" />
+</form>
+{% endblock %}
