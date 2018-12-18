@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.gis',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -125,8 +126,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-LOGIN_REDIRECT_URL = '/bookmarks/'
-LOGOUT_REDIRECT_URL = '/bookmarks/login'
 SPATIALITE_LIBRARY_PATH = 'mod_spatialite'
 
 
@@ -136,3 +135,8 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'pavan1995143.pavan@gmail.com'
 EMAIL_HOST_PASSWORD = 'mynameisking'
 EMAIL_PORT = 587
+<<<<<<< 7ffb166401fd1d983a7a9e87056ef94dc878337f
+=======
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+>>>>>>>  added root page,bootstrap to all apps and some enhancments to placesapp filter and for signin sessions

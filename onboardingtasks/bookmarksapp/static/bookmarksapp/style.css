@@ -1,3 +1,4 @@
+<<<<<<< 7ffb166401fd1d983a7a9e87056ef94dc878337f
 	#title
 	{
 		text-align: center;
@@ -6,57 +7,29 @@
 	.head p {
 		text-align: right;
 	}
+=======
+>>>>>>>  added root page,bootstrap to all apps and some enhancments to placesapp filter and for signin sessions
 	.leftDiv
-	{	
-		width: 19.5%;
-    	border-radius: 15px;
+	{
+		width: 23%;
 		float: left;
 		color:#867eff;
-		box-shadow:2px 3px 17px 6px ;
 	}
 	.leftDiv h3{
 		margin-left: 5%;
 	}
-		
-	.folders{
+
+	.btn-outline-primary{
 		margin-left: 3%;
-		border-radius: 25px;
-   		background: #7ec716e6;
    		width: 80%;
    		height: 5%;
-   		box-shadow: 0px 2px 8px 0px; 
-	}
-	.folder-text{
-		margin-left: 3%;
-		border-radius: 25px;
-		background : white;
-		width: 80%;
-		height: 5%;
-		box-shadow: 0px 2px 8px 0px; 
-		text-align: center;
-	}
-	.folder-btn{
-		margin-left: 1px;
-		border-radius: 25px;
-		background : white;
-		box-shadow: 1px;
-		text-align: center;
 	}
 	.rightDiv
-	{	
-		width: 80%;
-		border-radius: 15px;
+	{
+		width: 70%;
 		float: right;
 		color:  #867eff;
-		box-shadow: 2px 3px 17px 6px;
-	}	
+	}
 	.rightDiv h3{
 		margin-left: 2%;
-	}
-	.book-btn{
-		margin-left: 1px;
-		border-radius: 25px;
-		background : #7ec716e6;
-		box-shadow: 1px;
-		text-align: center;
 	}

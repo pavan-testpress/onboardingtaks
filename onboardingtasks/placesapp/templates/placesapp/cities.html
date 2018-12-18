@@ -4,12 +4,25 @@
         <div class="row">
             <div class="col-md-12">
                 <h3>Filter by City</h3>
-                {% if places %}
-                    {% for place in places|first|unique_cities%}
-                        <a href="{{place}}"><p>{{place}}</p></a>
-                    {% endfor %}
-                {% endif %}
-                <a href="{% url 'placesapp:list' %}"><p>All</p></a>
+                <form method="GET">
+                    {% if places %}
+                        <select name="city" class = "form-control">
+                            {% for place in places|first|unique_cities%}
+                              {% if place == city %}
+                                    <option selected>{{place}}</option>
+                                {% else %}
+                                    <option>{{place}}</option>
+                                {% endif %}
+                            {% endfor %}
+                            {% if city == "All" %}
+                                <option selected>All</option>
+                            {% else %}
+                                <option>All</option>
+                            {% endif %}
+                        </select>
+                    {% endif %}
+                    <input class="btn btn-primary" type="submit">
+                </form>
             </div>
         </div>
     </div>
