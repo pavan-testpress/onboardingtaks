@@ -2,7 +2,6 @@ from model_utils.models import TimeStampedModel
 from placesapp.models import Places
 from django.db import models
 from taggit.managers import TaggableManager
-
 # Create your models here.
 
 class Events(TimeStampedModel):

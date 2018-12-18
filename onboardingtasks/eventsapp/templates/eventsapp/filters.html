@@ -3,10 +3,10 @@
         <div class="row">
             <div class="col-md-12">
                 <h3>Filters</h3>
-                <div style = "display:-webkit-box;">
-                    <form action = "{% url 'eventsapp:list'%}" method="GET">
+                <div style = "display:-webkit-box;" >
+                    <form action = "{% url 'eventsapp:list'%}" method="GET" class="form-inline" >
                             By week day:
-                            <select  name="weekday">
+                            <select  name="weekday" class="form-control">
                                 <option value="0">Monday</option>
                                 <option value="1">Tuesday</option>
                                 <option value="2">Wednesday</option>
@@ -18,14 +18,14 @@
                             <button class="btn btn-primary btn-sm" type="submit">Submit</button>
                     </form>
                 </div>
-                <form action = "#" method="GET">
+                <form action = "#" method="GET" class="form-inline" >
                     By Month:
-                    <input type="month" name="yyyy-mm">
+                    <input type="month" class="form-control" name="yyyy-mm">
                     <button class="btn btn-primary btn-sm" type="submit">Submit</button>
                 </form>
-                <form>
+                <form class="form-inline">
                     By Specific date
-                    <input type="date" name="yyyy-mm-dd">
+                    <input type="date" name="yyyy-mm-dd" class="form-control">
                     <button class="btn btn-primary btn-sm" type="submit">Submit</button>
                 </form>
             </div>

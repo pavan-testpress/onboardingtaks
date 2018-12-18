@@ -1,6 +1,7 @@
 {% extends "invitationapp/base.html"%}
-{% block content%}
-<table>
+{% load crispy_forms_tags %}
+{% block container%}
+<table class="table table-bordered">
   <tr>
     <th>Invitee</th>
     <th>Status</th> 
@@ -16,9 +17,11 @@
   </tr>
 {% endfor %}
 </table>
-<form method="POST">
+{% endblock %}
+{% block content%}
+<form class = "form-inline" method="POST">
     {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Invite"/>
+    {{ form|crispy }}
+    <input type="submit" value="Invite" class="btn btn-primary"/>
 </form>
 {% endblock %}
