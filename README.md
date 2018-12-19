@@ -7,8 +7,8 @@ Tasks/Apps to complete in order to complete Onboarding tasks.
 - [x] Pages app
 - [x] Events app
 - [x] Invitations app
-- [ ] Bootstrap
-- [ ] User Authentication
+- [x] Bootstrap
+- [x] User Authentication
 - [ ] User Accounts
 - [ ] Email
 - [ ] Password Change and Reset
