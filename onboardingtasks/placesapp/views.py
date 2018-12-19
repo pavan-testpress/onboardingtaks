@@ -1,6 +1,7 @@
-from django.shortcuts import render
-from django.views.generic import CreateView,ListView,DetailView
-from placesapp.models import Places
+from django.views.generic import CreateView, ListView, DetailView
+from .models import Places
+from django.http import HttpResponseRedirect
+from django.shortcuts import reverse
 # Create your views here.
 
 
@@ -9,15 +10,26 @@ class Detail_View(DetailView):
     model = Places
     template_name = 'placesapp/placedetails.html'
 
+    def dispatch(self, *args, **kwargs):
+        if self.request.user.is_authenticated:
+            return super(Detail_View, self).dispatch(*args, **kwargs)
+        else:
+            return HttpResponseRedirect(reverse('authenticationapp:login'))
+
 
 class List_View(ListView):
     context_object_name = "places"
     model = Places
     template_name = 'placesapp/listplaces.html'
 
+    def dispatch(self, *args, **kwargs):
+        if self.request.user.is_authenticated:
+            return super(List_View, self).dispatch(*args, **kwargs)
+        else:
+            return HttpResponseRedirect(reverse('authenticationapp:login'))
+
     def get_queryset(self):
         qs = super(List_View, self).get_queryset()
-        #print(self.request.GET)
         if 'city' not in self.request.GET or self.request.GET['city'] == "All":
             qs = super(List_View, self).get_queryset()
         else:
@@ -32,9 +44,17 @@ class List_View(ListView):
             context['city'] = self.request.GET['city']
         return context
 
+
 class Create_View(CreateView):
     model = Places
     fields = '__all__'
+
+    def dispatch(self, *args, **kwargs):
+        if self.request.user.is_authenticated:
+            return super(Create_View, self).dispatch(*args, **kwargs)
+        else:
+            return HttpResponseRedirect(reverse('authenticationapp:login'))
+
     def get_success_url(self):
         url = self.request.GET['path']
         return url
