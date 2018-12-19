@@ -133,8 +133,8 @@ SPATIALITE_LIBRARY_PATH = 'mod_spatialite'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = '123@gmail.com'
-EMAIL_HOST_PASSWORD = 'password'
+EMAIL_HOST_USER = 'pavan1995143.pavan@gmail.com'
+EMAIL_HOST_PASSWORD = 'mynameisking'
 EMAIL_PORT = 587
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

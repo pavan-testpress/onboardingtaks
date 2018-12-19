@@ -12,12 +12,7 @@
               <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 </ul>
-                  {% if user.is_authenticated%}
-                  <a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'invitationapp:logout' %}">Logout</a>
-                  {% else %}
-                  <a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'invitationapp:signup' %}">Signup</a>
-                  <a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'invitationapp:login' %}">Login</a>
-                  {% endif %}
+                  <a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'authenticationapp:logout' %}">Logout</a>
               </div>
             </nav>
         </header>
