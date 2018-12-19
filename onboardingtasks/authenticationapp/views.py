@@ -8,7 +8,6 @@ from .forms import UserCreationForm
 
 
 def index(request):
-    print(request.user)
     if str(request.user) == 'AnonymousUser':
         return HttpResponseRedirect(reverse('authenticationapp:login'))
     else:

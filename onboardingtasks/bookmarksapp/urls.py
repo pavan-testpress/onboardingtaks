@@ -4,7 +4,4 @@ from . import views
 app_name = 'bookmarksapp'
 urlpatterns = [
     path('', views.HomeView.as_view(), name="index"),
-    path('signup/', views.signup, name="signup"),
-    path('login/', views.login, name='login'),
-    path('logout/', views.logout, name='logout'),
 ]
