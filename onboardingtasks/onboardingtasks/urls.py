@@ -19,7 +19,7 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.index,name="index"),
+    path('', include('authenticationapp.urls')),
     path('pages/', include('pagesapp.urls')),
     path('bookmarks/', include('bookmarksapp.urls')),
     path('admin/', admin.site.urls),

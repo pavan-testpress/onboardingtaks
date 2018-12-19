@@ -1,0 +1,7 @@
+{% extends "authenticationapp/base.html"%}
+{% block content%}
+    <h1> Sorry, Invalid Credentials entered...</h1>
+    <a href="{% url 'authenticationapp:login'%}">
+    <h2> Try to login with correct credentials</h2>
+    </a>
+{% endblock %}
