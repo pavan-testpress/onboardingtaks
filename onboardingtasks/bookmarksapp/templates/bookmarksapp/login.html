@@ -1,7 +1,7 @@
 {% extends "bookmarksapp/base.html"%}
 {% load crispy_forms_tags %}
 {% block container%}
-<h1 class="mt-2">Signup</h1>
+<h1 class="mt-2">Login</h1>
 <hr class="mt-0 mb-4">
     <form action = "{% url 'bookmarksapp:login' %}" method="POST">
     {% csrf_token %}
