@@ -38,7 +38,7 @@ class NavPageView(TemplateView):
             return HttpResponseRedirect(reverse('authenticationapp:login'))
 
     def get(self, request):
-        pat=request.path.split('/')[2]
+        pat = request.path.split('/')[2]
         h = Pages.objects.get(slug=pat)
         html = h.content_html
         title = h.title
