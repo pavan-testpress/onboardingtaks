@@ -1,0 +1,45 @@
+{% extends 'useraccountsapp/base.html' %}
+{% load crispy_forms_tags %}
+{% block container %}
+    <form method="post" enctype="multipart/form-data" >
+        {% csrf_token %}
+        <div class="row">
+          <div class="col-4">
+            {{ form.first_name|as_crispy_field }}
+          </div>
+          <div class="col-4">
+            {{ form.middle_name|as_crispy_field }}
+          </div>
+            <div class="col-4">
+            {{ form.last_name|as_crispy_field }}
+          </div>
+        </div>
+        <p>{{form.gender.label}}<span class="asteriskField">*</span> </p>
+        <div class="row">
+            {% for g in form.gender %}
+            <div class="col-2">
+                <p>{{g}}</p>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="row">
+            <div class="col-4">
+                {{ form.date_of_birth|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            {{ form.phone_number|as_crispy_field }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            {{ form.profile_picture|as_crispy_field }}
+          </div>
+        </div>
+        <div class="float-right">
+            <input type="submit" value="Save" class="btn btn-primary">
+        </div>
+
+    </form>
+{% endblock %}
