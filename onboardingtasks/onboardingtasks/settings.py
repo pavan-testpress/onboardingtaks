@@ -136,4 +136,6 @@ EMAIL_HOST_USER = '123@gmail.com'
 EMAIL_HOST_PASSWORD = 'password'
 EMAIL_PORT = 587
 
+
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+

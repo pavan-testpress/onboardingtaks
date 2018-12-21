@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.contrib.auth import login as mylogin , authenticate, logout as mylogout
+from django.contrib.auth import login as mylogin, authenticate, logout as mylogout
 from .forms import UserCreationForm, InvitationForm
 from django.urls import reverse
 from django.http import HttpResponseRedirect
@@ -25,7 +25,6 @@ def login(request):
         else:
             # Return an 'invalid login' error message.
             return render(request, "invitationapp/invalidlogin.html")
-
 
 def singup(request):
     if request.method == 'POST':

@@ -23,3 +23,4 @@ class InvitationForm(forms.ModelForm):
     class Meta:
         model = Invitations
         fields = ['invitee_email', ]
+
