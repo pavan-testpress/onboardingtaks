@@ -1,10 +1,12 @@
 from django.urls import path
 from . import views
 
-app_name = 'bookmarksapp'
+
+app_name = 'invitationapp'
+
 urlpatterns = [
-    path('', views.HomeView.as_view(), name="index"),
-    path('signup/', views.signup, name="signup"),
+    path('', views.index, name="index"),
     path('login/', views.login, name='login'),
+    path('signup/', views.singup, name='signup'),
     path('logout/', views.logout, name='logout'),
 ]
