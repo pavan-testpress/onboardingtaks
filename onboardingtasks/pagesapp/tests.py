@@ -2,10 +2,12 @@ from django.test import SimpleTestCase
 
 # Create your tests here.
 
+
 class PagesTests(SimpleTestCase):
     def test_home_page_status_code(self):
         response = self.client.get('/pages/')
-        self.assertEqual(response.status_code,200)
+        self.assertEqual(response.status_code, 200)
+
     def test_about_page_status_code(self):
         response = self.client.get('/pages/about')
-        self.assertEqual(response.status_code,200) 
+        self.assertEqual(response.status_code, 200)

@@ -2,6 +2,7 @@
 {% block title %}
     <title>{{place.title}}</title>
 {% endblock %}
+
 {% block cities%}
 
 {% endblock %}
@@ -15,8 +16,8 @@
     <p>City : {{place.city}}</p>
     <p>Type of City : {{place.type_of_city}}</p>
     <p>Tags : 
-    {% for tag in place.tags.all %}
-        {{ tag }},
-    {% endfor %}
+        {% for tag in place.tags.all %}
+            {{ tag }},
+        {% endfor %}
     </p>
 {% endblock %}

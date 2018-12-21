@@ -1,8 +1,8 @@
 <h2>Login</h2>
 <form action='/bookmarks/' method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit" name="login">Login</button>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" name="login">Login</button>
 </form>
 <form action="/bookmarks/signup">
     <p>Not Yet Created Account.. Go to below signup Page.</p>

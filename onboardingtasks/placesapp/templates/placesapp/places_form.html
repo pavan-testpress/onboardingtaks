@@ -4,14 +4,15 @@
 {% endblock %}
 
 {% block cities%}
+
 {% endblock %}
 
 {% block pagecontent %}
-<form method="POST">
-    {% csrf_token %}
-    {{form.as_p }}
-    {% block createplacebutton%}
-    <input type="submit" value="Submit"/>
-    {% endblock %}
-</form>    
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p }}
+        {% block createplacebutton%}
+            <input type="submit" value="Submit"/>
+        {% endblock %}
+    </form>
 {% endblock %}

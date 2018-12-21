@@ -1,56 +1,53 @@
 {% extends 'bookmarksapp/base.html' %}
-
 {% block content %}
 <div>
     <div class="leftDiv">
         <h3>Folder Tags</h3>
         <form action="get" method="get">
-          {% for folder in folders%}
-            <button class="folders" type="submit" name="id" value="{{folder.id}}">{{ folder.folder_name}}</button><br>
-          {% endfor%}
+            {% for folder in folders%}
+                <button class="folders" type="submit" name="id" value="{{folder.id}}">{{ folder.folder_name}}</button><br>
+            {% endfor%}
         </form>
         <form action='folder' method = "post">
-          {% csrf_token %}
-          <input class="folder-text" type="text" name="folder"/>
-          <input class="folder-btn" type="submit" name="add_folder" value="Add"/>
-          </form>
+            {% csrf_token %}
+            <input class="folder-text" type="text" name="folder"/>
+            <input class="folder-btn" type="submit" name="add_folder" value="Add"/>
+        </form>
     </div>
     <div class="rightDiv">
-    <h3>Bookmark Url's</h3>
-      {% for bookmark in bookmarks%}
-          <form action='post' method = "post">
-          {% csrf_token %}
-          <input class="folder-btn" type="text" id="{{bookmark.id}}" name="name" value="{{bookmark.name}}"/>
-          <input class="folder-btn" type="text" id="{{bookmark.id}}" name="bookmark_url" value="{{bookmark.bookmark_url}}"/>
-          <input class="folder-btn" type="text" id="{{bookmark.id}}" name="description" value=" {{bookmark.description}}"/>
-          <input type="text" name="id" value="{{bookmark.id}}" hidden="True"/>
-          <select class="folder-btn" name="folder_list">
-            {% for folder in folders%}
-              {% ifequal bookmark.folder_name|cut:" " folder.folder_name|cut:" " %}
-                <option value="{{folder.id}}" selected="selected">{{folder.folder_name}}</option>
-              {% else %}
-                <option value="{{folder.id}}">{{folder.folder_name}}</option>
-              {% endifequal %}
-            {% endfor %}
-          </select>
-          <input class="book-btn" type="submit" name="edit" value="Edit"/>
-          <input class="book-btn" type="submit" name="delete" value="Delete"/>
-          <p>
-          </form>
-      {% endfor %}
+        <h3>Bookmark Url's</h3>
+        {% for bookmark in bookmarks%}
+            <form action='post' method = "post">
+                {% csrf_token %}
+                <input class="folder-btn" type="text" id="{{bookmark.id}}" name="name" value="{{bookmark.name}}"/>
+                <input class="folder-btn" type="text" id="{{bookmark.id}}" name="bookmark_url" value="{{bookmark.bookmark_url}}"/>
+                <input class="folder-btn" type="text" id="{{bookmark.id}}" name="description" value=" {{bookmark.description}}"/>
+                <input type="text" name="id" value="{{bookmark.id}}" hidden="True"/>
+                <select class="folder-btn" name="folder_list">
+                    {% for folder in folders%}
+                        {% ifequal bookmark.folder_name|cut:" " folder.folder_name|cut:" " %}
+                            <option value="{{folder.id}}" selected="selected">{{folder.folder_name}}</option>
+                        {% else %}
+                            <option value="{{folder.id}}">{{folder.folder_name}}</option>
+                        {% endifequal %}
+                    {% endfor %}
+                </select>
+                <input class="book-btn" type="submit" name="edit" value="Edit"/>
+                <input class="book-btn" type="submit" name="delete" value="Delete"/>
+            </form>
+        {% endfor %}
         <form action='add' method = "post">
-          {% csrf_token %}
-          <input class="folder-btn" type="text" name="name"/>
-          <input class="folder-btn" type="text" name="bookmark_url"/>
-          <input class="folder-btn" type="text" name="description"/>
-          <select class="folder-btn" name="folder_list">
-            {% for folder in folders%}
-                <option value="{{folder.id}}">{{folder.folder_name}}</option>
-            {% endfor %}
-          </select>
-          <input class="book-btn" type="submit" name="add" value="add"/>
-          <p>
-          </form>
-      </div>
+            {% csrf_token %}
+            <input class="folder-btn" type="text" name="name"/>
+            <input class="folder-btn" type="text" name="bookmark_url"/>
+            <input class="folder-btn" type="text" name="description"/>
+            <select class="folder-btn" name="folder_list">
+                {% for folder in folders%}
+                    <option value="{{folder.id}}">{{folder.folder_name}}</option>
+                {% endfor %}
+            </select>
+            <input class="book-btn" type="submit" name="add" value="add"/>
+        </form>
+    </div>
 </div>
 {% endblock content %}
