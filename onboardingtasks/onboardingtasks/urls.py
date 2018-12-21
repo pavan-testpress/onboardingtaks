@@ -15,10 +15,6 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-<<<<<<< 7ffb166401fd1d983a7a9e87056ef94dc878337f
-from django.conf.urls import url
-=======
->>>>>>>  added root page,bootstrap to all apps and some enhancments to placesapp filter and for signin sessions
 from . import views
 
 urlpatterns = [
@@ -26,12 +22,7 @@ urlpatterns = [
     path('pages/', include('pagesapp.urls')),
     path('bookmarks/', include('bookmarksapp.urls')),
     path('admin/', admin.site.urls),
-<<<<<<< 7ffb166401fd1d983a7a9e87056ef94dc878337f
-    path('bookmarks/', include('django.contrib.auth.urls')),
-    url(r'^places/', include('placesapp.urls')),
-=======
     path('places/', include('placesapp.urls')),
->>>>>>>  added root page,bootstrap to all apps and some enhancments to placesapp filter and for signin sessions
     path('events/', include('eventsapp.urls')),
     path('invitations/', include('invitationapp.urls')),
 ]
