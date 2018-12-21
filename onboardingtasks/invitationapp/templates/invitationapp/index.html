@@ -1,27 +1,28 @@
 {% extends "invitationapp/base.html"%}
 {% load crispy_forms_tags %}
 {% block container%}
-<table class="table table-bordered">
-  <tr>
-    <th>Invitee</th>
-    <th>Status</th> 
-  </tr>
-  {% for invitee in invite_list %}
-  <tr>
-    <td>{{ invitee.invitee_email }}</td>
-    {% if invitee.registered %}
-        <td>Registered</td>
-    {% else %}
-        <td>Not Registered</td>
-    {% endif %}
-  </tr>
-{% endfor %}
-</table>
+    <table class="table table-bordered">
+        <tr>
+            <th>Invitee</th>
+            <th>Status</th>
+        </tr>
+        {% for invitee in invite_list %}
+            <tr>
+                <td>{{ invitee.invitee_email }}</td>
+                {% if invitee.registered %}
+                    <td>Registered</td>
+                {% else %}
+                    <td>Not Registered</td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+    </table>
 {% endblock %}
+
 {% block content%}
-<form class = "form-inline" method="POST">
-    {% csrf_token %}
-    {{ form|crispy }}
-    <input type="submit" value="Invite" class="btn btn-primary"/>
-</form>
+    <form class = "form-inline" method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="submit" value="Invite" class="btn btn-primary"/>
+    </form>
 {% endblock %}

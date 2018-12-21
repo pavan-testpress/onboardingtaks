@@ -8,7 +8,7 @@
                     {% if places %}
                         <select name="city" class = "form-control">
                             {% for place in places|first|unique_cities%}
-                              {% if place == city %}
+                                {% if place == city %}
                                     <option selected>{{place}}</option>
                                 {% else %}
                                     <option>{{place}}</option>

@@ -30,42 +30,6 @@
         <link rel="stylesheet" type="text/css" href="/static/admin/css/responsive.css">
     </head>
     <body>
-=======
-<head>
-    {% load static %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    {{ tform.media }}
-    {{ eform.media }}
-   
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{% static 'eventsapp/css.css' %}" %}>
-
-    {% block title%}
-    {% endblock %}
-<link rel="stylesheet" type="text/css" href="/static/admin/css/forms.css">
- <link rel="stylesheet" type="text/css" href="/static/admin/css/base.css">
-<script type="text/javascript" src="/admin/jsi18n/"></script>
-<script type="text/javascript" src="/static/admin/js/vendor/jquery/jquery.js"></script>
-<script type="text/javascript" src="/static/admin/js/jquery.init.js"></script>
-<script type="text/javascript" src="/static/admin/js/core.js"></script>
-<script type="text/javascript" src="/static/admin/js/admin/RelatedObjectLookups.js"></script>
-<script type="text/javascript" src="/static/admin/js/actions.js"></script>
-<script type="text/javascript" src="/static/admin/js/urlify.js"></script>
-<script type="text/javascript" src="/static/admin/js/prepopulate.js"></script>
-<script type="text/javascript" src="/static/admin/js/vendor/xregexp/xregexp.js"></script>
-<script type="text/javascript" src="/static/admin/js/calendar.js"></script>
-<script type="text/javascript" src="/static/admin/js/admin/DateTimeShortcuts.js"></script>
-
-
-
-    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/static/admin/css/responsive.css">
-
-</head>
-<body>
->>>>>>>  added root page,bootstrap to all apps and some enhancments to placesapp filter and for signin sessions
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="/">All Apps</a>
             <a class="navbar-brand" href="{% url 'eventsapp:list'%}">Home</a>
@@ -79,6 +43,7 @@
             {% endblock %}
         </div>
         {% block filters%}
+
         {% endblock %}
     </body>
 </html>

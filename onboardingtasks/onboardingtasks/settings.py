@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'onboardingtasks.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.spatialite',#'django.db.backends.sqlite3',
+        'ENGINE': 'django.contrib.gis.db.backends.spatialite',  # 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
@@ -135,8 +135,5 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = '123@gmail.com'
 EMAIL_HOST_PASSWORD = 'password'
 EMAIL_PORT = 587
-<<<<<<< 7ffb166401fd1d983a7a9e87056ef94dc878337f
-=======
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
->>>>>>>  added root page,bootstrap to all apps and some enhancments to placesapp filter and for signin sessions

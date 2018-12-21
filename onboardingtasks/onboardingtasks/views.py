@@ -1,4 +1,5 @@
 from django.shortcuts import render
 
+
 def index(request):
-    return render(request,'onboardingtasks/templates/onboardingtasks/index.html')
+    return render(request, 'onboardingtasks/templates/onboardingtasks/index.html')

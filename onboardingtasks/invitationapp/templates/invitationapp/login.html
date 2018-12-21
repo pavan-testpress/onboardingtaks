@@ -1,12 +1,12 @@
 {% extends "invitationapp/base.html"%}
 {% block container%}
-<h1 class="mt-2">Login</h1>
-<hr class="mt-0 mb-4">
+    <h1 class="mt-2">Login</h1>
+    <hr class="mt-0 mb-4">
     <form method="POST">
-    {% csrf_token %}
-      <p class="form-inline" ><label for="id_username">Username:</label> <input type="text" class="form-control" name="username" autofocus required id="id_username"></p>
-    <p class="form-inline" ><label for="id_password">Password:</label> <input type="password" class="form-control" name="password" required id="id_password"></p>
-      <button class="btn btn-primary"  type="submit">Login</button>
+        {% csrf_token %}
+        <p class="form-inline" ><label for="id_username">Username:</label> <input type="text" class="form-control" name="username" autofocus required id="id_username"></p>
+        <p class="form-inline" ><label for="id_password">Password:</label> <input type="password" class="form-control" name="password" required id="id_password"></p>
+        <button class="btn btn-primary"  type="submit">Login</button>
     </form>
     <form action="{% url 'invitationapp:signup' %}">
         <p>Not Yet Created Account.. Go to below signup Page.</p>

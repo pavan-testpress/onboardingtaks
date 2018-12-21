@@ -1,7 +1,8 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from invitationapp.models import Invitations
+from .models import Invitations
+
 
 class UserCreationForm(UserCreationForm):
     email = forms.EmailField(required=True)
@@ -17,7 +18,8 @@ class UserCreationForm(UserCreationForm):
             user.save()
         return user
 
+
 class InvitationForm(forms.ModelForm):
     class Meta:
         model = Invitations
-        fields = ['invitee_email',]
+        fields = ['invitee_email', ]
