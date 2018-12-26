@@ -50,11 +50,11 @@ class EventsCreateView(CreateView):
             eform.created_by = eform.cleaned_data['created_by']
             e = eform.save()
         tform = EventTime()
-        event_start_time = request.POST['event_start_time_0']+" "+request.POST['event_start_time_1']
-        event_start_time = datetime.strptime(event_start_time, '%Y-%m-%d %H:%M:%S') 
+        event_start_time = request.POST['event_start_time_0'] + " " + request.POST['event_start_time_1']
+        event_start_time = datetime.strptime(event_start_time, '%Y-%m-%d %H:%M:%S')
         tform.event_start_time = event_start_time
-        event_end_time = request.POST['event_end_time_0']+" "+request.POST['event_end_time_1']
-        event_end_time = datetime.strptime(event_end_time, '%Y-%m-%d %H:%M:%S') 
+        event_end_time = request.POST['event_end_time_0'] + " " + request.POST['event_end_time_1']
+        event_end_time = datetime.strptime(event_end_time, '%Y-%m-%d %H:%M:%S')
         tform.event_end_time = event_end_time
         tform.event = Events.objects.get(pk=e.pk)
         tform.save()

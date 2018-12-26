@@ -8,4 +8,3 @@ urlpatterns = [
     path('', HomePageView.as_view(), name="home"),
     url(r'^', NavPageView.as_view(), name="navpage")
 ]
-

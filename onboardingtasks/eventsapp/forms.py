@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 from .models import Events, EventTime
-from django.contrib.admin import widgets 
+from django.contrib.admin import widgets
 
 
 class EventForm(ModelForm):

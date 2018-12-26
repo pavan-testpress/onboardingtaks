@@ -129,4 +129,3 @@ class HomeViewTestCase(TestCase):
         element = response.context['bookmarks'].get(pk=data['id'])
         self.assertEqual(element.bookmark_url, data['bookmark_url'])
         self.assertEqual(element.name, data['name'])
-

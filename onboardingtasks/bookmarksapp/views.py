@@ -16,7 +16,7 @@ class HomeView(TemplateView):
             bookmarks = Bookmarks.objects.filter(user=request.user)
         folders = Folders.objects.filter(user=request.user)
         return render(request, self.template_name, {'bookmarks': bookmarks, 'folders': folders})
-    
+
     def post(self, request):
         if 'login' in request.POST:
             username = request.POST['username']
@@ -24,11 +24,11 @@ class HomeView(TemplateView):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                print('Yes'+str(user))
+                print('Yes' + str(user))
                 # Redirect to a success page.
             else:
                 # Return an 'invalid login' error message.
-                print('Not'+str(user))
+                print('Not' + str(user))
         if 'edit' in request.POST:
             folder = Folders.objects.get(id=int(request.POST['folder_list']), user=request.user)
             bookmark = Bookmarks.objects.get(pk=int(request.POST['id']))

@@ -9,5 +9,4 @@ urlpatterns = [
     path('post', HomeView.as_view()),
     path('get', HomeView.as_view()),
     path('folder', HomeView.as_view()),
-    
 ]

@@ -11,7 +11,7 @@ class HomePageView(TemplateView):
         data = Pages.objects.all().order_by('ordering', '-modified')
         form = PagesForm()
         return render(request, self.template_name, {'form': form, 'data': data})
-    
+
     def post(self, request):
         data = Pages.objects.all().order_by('ordering', '-modified')
         form = PagesForm(request.POST)
