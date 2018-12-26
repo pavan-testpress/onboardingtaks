@@ -36,11 +36,22 @@ class BookMarksSignupSigninTestCase(TestCase):
         response = self.client.post(reverse('home:signup'), data, follow=True)
         self.assertRedirects(response, reverse('home:index'))
 
+    def testLogoutPage(self):
+        response = self.client.get('/bookmarks/logout/', follow=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertRedirects(response, '/bookmarks/login/')
 
-class HomeViewTestCase(BookMarksSignupSigninTestCase):
+
+class HomeViewTestCase(TestCase):
     def setUp(self):
-        super().setUp()
-        test_post_login_page = super().testPostLoginPage()
+        self.credentials = {
+            'username': 'pavan',
+            'password': 'pavankumar'
+        }
+        User.objects.create_user(**self.credentials)
+        response = self.client.post('/bookmarks/login/', self.credentials, follow=True)
+        self.assertRedirects(response, reverse('home:index'))
+        test_post_login_page = response
         f = Folders.objects.create(
             folder_name="Google",
             user=test_post_login_page.context['user']
@@ -102,4 +113,20 @@ class HomeViewTestCase(BookMarksSignupSigninTestCase):
             'id': Bookmarks.objects.last().id,
         }
         response = self.client.post(reverse('home:index'), data, follow=True)
-        print(response.context)
+        exists = response.context['bookmarks'].filter(pk=data['id']).exists()
+        self.assertEqual(exists, False)
+
+    def testPostEditInIndexPage(self):
+        data = {
+            'edit': '',
+            'folder_list': Bookmarks.objects.last().folder_name.id,
+            'id': Bookmarks.objects.last().id,
+            'bookmark_url': 'GooHoo',
+            'name': 'GooHoo Website',
+            'description': Bookmarks.objects.last().description
+        }
+        response = self.client.post(reverse('home:index'), data, follow=True)
+        element = response.context['bookmarks'].get(pk=data['id'])
+        self.assertEqual(element.bookmark_url, data['bookmark_url'])
+        self.assertEqual(element.name, data['name'])
+

@@ -6,6 +6,6 @@ app_name = "pagesapp"
 
 urlpatterns = [
     path('', HomePageView.as_view(), name="home"),
-    url(r'^', NavPageView.as_view())
+    url(r'^', NavPageView.as_view(), name="navpage")
 ]
 
