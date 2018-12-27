@@ -34,7 +34,6 @@ class HomeView(TemplateView):
             bookmark = Bookmarks.objects.get(pk=int(request.POST['id']))
             bookmark.bookmark_url = request.POST['bookmark_url']
             bookmark.name = request.POST['name']
-            bookmark.description = request.POST['description'].strip()
             bookmark.folder_name = folder
             bookmark.user = request.user
             bookmark.save()
@@ -46,7 +45,6 @@ class HomeView(TemplateView):
             folder = Folders.objects.get(id=int(request.POST['folder_list']), user=request.user)
             bookmark.bookmark_url = request.POST['bookmark_url']
             bookmark.name = request.POST['name']
-            bookmark.description = request.POST['description'].strip()
             bookmark.folder_name = folder
             bookmark.user = request.user
             bookmark.save()

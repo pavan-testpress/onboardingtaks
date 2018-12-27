@@ -21,7 +21,6 @@
                     {% csrf_token %}
                     <input class="form-control" type="text" id="{{bookmark.id}}" name="name" value="{{bookmark.name}}"/>
                     <input class="form-control" type="text" id="{{bookmark.id}}" name="bookmark_url" value="{{bookmark.bookmark_url}}"/>
-                    <input class="form-control" type="text" id="{{bookmark.id}}" name="description" value=" {{bookmark.description}}"/>
                     <input type="text" name="id" value="{{bookmark.id}}" hidden="True"/>
                     <select name="folder_list" class="form-control" >
                         {% for folder in folders%}
@@ -41,7 +40,6 @@
                 {% csrf_token %}
                 <input class="form-control" type="text" name="name"/>
                 <input class="form-control" type="text" name="bookmark_url"/>
-                <input class="form-control" type="text" name="description"/>
                 <select class="form-control" name="folder_list">
                     {% for folder in folders%}
                         <option value="{{folder.id}}">{{folder.folder_name}}</option>
