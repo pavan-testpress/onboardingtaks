@@ -10,7 +10,7 @@ class HomeView(TemplateView):
     template_name = "bookmarksapp/index.html"
 
     def get(self, request):
-        if 'id' in request.GET and request.GET['id'] != '1':
+        if 'id' in request.GET and request.GET['id'] != '0':
             bookmarks = Bookmarks.objects.filter(folder_name=request.GET['id'], user=request.user)
         else:
             bookmarks = Bookmarks.objects.filter(user=request.user)
